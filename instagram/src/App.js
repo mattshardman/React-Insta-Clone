@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SearchBar from './components/SearchBar';
 import PostContainer from './components/PostContainer';
+
+import data from './dummy-data';
 
 class App extends Component {
   render() {
@@ -14,8 +15,9 @@ class App extends Component {
          display: 'flex',
          flexDirection: 'column',
          alignItems: 'center',
+         marginTop: 20
        }}>
-        <PostContainer />
+          { data.map(post => <PostContainer key={post.timestamp} {...post}/>) }
        </div>
       </div>
     );
