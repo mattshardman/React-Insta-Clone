@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
-const styleMaker = typing => ({
+const styleMaker = (typing, scrolled) => ({
     header: { 
+        position: 'fixed',
         boxSizing: 'border-box',
         width: '100%', 
-        height: 77,
+        height: scrolled ? 60 : 77,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-around',
         padding: '0 15%',
-        borderBottom: '#eaeaea 1px solid'
+        borderBottom: '#eaeaea 1px solid',
+        transition: 'height 400ms',
+        background: '#fff'
     },
     headerMob: { 
+        position: 'fixed',
         boxSizing: 'border-box',
         width: '100%', 
         height: 77,
@@ -19,7 +23,8 @@ const styleMaker = typing => ({
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '0 5%',
-        borderBottom: '#eaeaea 1px solid'
+        borderBottom: '#eaeaea 1px solid',
+        background: '#fff'
     },
     logoSection: { 
         display: 'flex', 
@@ -33,8 +38,10 @@ const styleMaker = typing => ({
         marginRight: 10 
     },
     logoText: { 
+        opacity: scrolled ? 0 : 1,
         fontFamily: 'Lobster Two, cursive', 
-        fontSize: 25 
+        fontSize: 25,
+        transition: 'opacity 420ms',
     },
     searchBox: { 
         width: 215,
@@ -82,15 +89,28 @@ const styleMaker = typing => ({
 
 function SearchBar() {
   const [typing, setTyping ] = useState(false);
+  const [isScrolled, setIsScrolled ] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
-  const styles = styleMaker(typing);
+  const styles = styleMaker(typing, isScrolled);
 
   // this will probably change for styled components
   useEffect(() => {
+    const isMobile = window.innerWidth < 900;
+    setIsMobile(isMobile);
       window.addEventListener('resize', () => {
         const isMobile = window.innerWidth < 900;
-        setIsMobile(isMobile)
+        setIsMobile(isMobile);
       });
+
+      window.addEventListener('scroll', () => {
+          if (window.scrollY > 100) {
+            return setIsScrolled(true);
+          }
+
+          if (!window.scrollY) {
+            return setIsScrolled(false);
+          }
+      })
   })
 
   console.log(isMobile)

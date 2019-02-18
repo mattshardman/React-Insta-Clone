@@ -9,7 +9,8 @@ const styleMaker = (thumbnailUrl, imageUrl) => ({
         border: '1px #eaeaea solid',
         borderRadius: 3, 
         boxSizing: 'border-box', 
-        margin: '10px 0'
+        margin: '10px 0',
+        background: '#fff'
     },
     header: { 
         height: 50, 

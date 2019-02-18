@@ -15,7 +15,8 @@ class App extends Component {
          display: 'flex',
          flexDirection: 'column',
          alignItems: 'center',
-         marginTop: 20
+         paddingTop: 100,
+         background: '#fafafa'
        }}>
           { data.map(post => <PostContainer key={post.timestamp} {...post}/>) }
        </div>
