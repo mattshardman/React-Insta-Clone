@@ -104,7 +104,7 @@ function PostContainer({ username, thumbnailUrl, imageUrl, likes, comments }) {
                     
                 </div>
                 <div style={{ width: '100%', padding: '5px 20px', boxSizing: 'border-box'  }}>
-                    { comments.map(comment => <CommentSection key={comment.username} {...comment} />) }
+                    { comments.map(comment => <CommentSection key={comment.text} {...comment} />) }
                 </div>
                 <div style={addCommentSection}>
                     <input 
