@@ -83,10 +83,9 @@ const styleMaker = typing => ({
 function SearchBar() {
   const [typing, setTyping ] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
-  
-  console.log(isMobile);
   const styles = styleMaker(typing);
 
+  // this will probably change for styled components
   useEffect(() => {
       window.addEventListener('resize', () => {
         const isMobile = window.innerWidth < 900;
