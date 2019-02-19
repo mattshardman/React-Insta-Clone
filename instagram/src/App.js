@@ -16,13 +16,24 @@ const PostsWrapper = styled.div`
 `;
 
 class App extends Component {
+  state = {
+    posts: null,
+  }
+
+  componentWillMount() {
+    this.setState({ posts: data });
+  }
+
   render() {
+    const { posts } = this.state;
     return (
       <div className="App">
        <SearchBar />
-       <PostsWrapper>
-          { data.map(post => <PostContainer key={post.timestamp} {...post}/>) }
-       </PostsWrapper>
+       { posts &&
+        <PostsWrapper>
+          { posts.map(post => <PostContainer key={post.timestamp} {...post}/>) }
+        </PostsWrapper>
+       }
       </div>
     );
   }
