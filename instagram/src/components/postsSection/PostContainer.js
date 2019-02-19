@@ -14,7 +14,7 @@ import {
     AddComments 
 } from './postsStyles';
 
-function PostContainer({ id, username, thumbnailUrl, imageUrl, likes, timestamp, comments, handleLike }) {
+function PostContainer({ id, username, thumbnailUrl, imageUrl, likes, timestamp, comments, handleLike, handleChangeCommentText, commentValue, handleAddComments }) {
     const [thisUserLiked, setThisUserLiked ] = useState(false);
 
     return (
@@ -58,17 +58,25 @@ function PostContainer({ id, username, thumbnailUrl, imageUrl, likes, timestamp,
                 </Comments>
 
                 <AddComments>
-                    <input 
-                        type="text" 
-                        placeholder="Add a comment..." 
-                        style={{ 
-                            height: 30,
-                            width: '75%',
-                            border: 'none',
-                            fontSize: 14,
-                            outline: 'none'
-                        }} 
-                    />
+                    <form 
+                        action="" 
+                        style={{ padding: 0, margin: 0, width: '100%' }}
+                        onSubmit={(e) => handleAddComments(e, id)}
+                    >
+                        <input 
+                            type="text" 
+                            placeholder="Add a comment..." 
+                            value={commentValue}
+                            onChange={(e) => handleChangeCommentText(e, id)}
+                            style={{ 
+                                height: 30,
+                                width: '100%',
+                                border: 'none',
+                                fontSize: 14,
+                                outline: 'none'
+                            }} 
+                        />
+                    </form>
                     <i/>
                 </AddComments>
             </TextSection>
@@ -85,6 +93,9 @@ PostContainer.propTypes = {
     timestamp: PT.string.isRequired, 
     comments: PT.arrayOf(PT.object).isRequired,
     handleLike: PT.func.isRequired,
+    handleChangeCommentText: PT.func.isRequired,
+    commentValue: PT.string.isRequired,
+    handleAddComments: PT.func.isRequired,
 }
 
 export default PostContainer;

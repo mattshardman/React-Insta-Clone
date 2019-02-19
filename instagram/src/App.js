@@ -19,6 +19,7 @@ const PostsWrapper = styled.div`
 class App extends Component {
   state = {
     searchTerm: '',
+    commentValue: '',
     posts: null,
   }
 
@@ -71,8 +72,41 @@ class App extends Component {
     });
   }
 
+  handleChangeCommentText = (e) => {
+    const { value } = e.target;
+    this.setState({ commentValue: value });
+  }
+
+  handleAddComments = (e, id) => {
+    e.preventDefault();
+
+    this.setState(state => { 
+      const newPosts = state.posts.map(post => {
+        if(!state.commentValue) {
+          return {...post}
+        }
+
+        if(post.id === id) {
+          return {
+            ...post,
+            comments: [...post.comments, {
+              username: 'matt',
+              text: state.commentValue
+            }]
+          }
+        }
+
+        return { ...post };
+      });
+
+      return { 
+        posts: newPosts,
+      }
+    });
+  }
+
   render() {
-    const { posts, searchTerm } = this.state;
+    const { posts, searchTerm, commentValue } = this.state;
     return (
       <div className="App">
        <SearchBar 
@@ -86,6 +120,9 @@ class App extends Component {
           <PostContainer 
             key={post.timestamp} 
             handleLike={this.handleLike}
+            handleChangeCommentText={this.handleChangeCommentText}
+            commentValue={commentValue}
+            handleAddComments={this.handleAddComments}
             {...post}
           />
             ) 
