@@ -21,7 +21,7 @@ const scrollHandler = (scrollHeight) => {
     return false;
 }
 
-function SearchBar() {
+function SearchBar({ handleSearch, searchTerm }) {
   const [isScrolled, setIsScrolled ] = useState(false);
 
   useEffect(() => {
@@ -46,7 +46,10 @@ function SearchBar() {
             <LogoText isScrolled={isScrolled}>Instagram</LogoText>
         </LogoSection>
 
-        <SearchInput />
+        <SearchInput 
+            searchTerm={searchTerm}
+            handleSearch={handleSearch} 
+        />
 
         <RightHandIcons>
             { ['compass', 'heart', 'user'].map(name => 

@@ -54,6 +54,7 @@ export const Likes = styled.div`
     align-items: flex-start;
     padding-left: 20px; 
     padding-top: 10px;
+    cursor: pointer;
 `;
 
 export const Comments = styled.div`

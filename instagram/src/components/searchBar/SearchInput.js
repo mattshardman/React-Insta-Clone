@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SearchBox, SearchIcon, InputBox, CloseButton} from './searchInputStyles';
 
-function SearchInput() {
+function SearchInput({ handleSearch, searchTerm }) {
     const [typing, setTyping] = useState(false);
     return (
         <SearchBox 
@@ -27,10 +27,11 @@ function SearchInput() {
                         autoFocus
                         type="text" 
                         placeholder=""
+                        // value={searchTerm}
+                        onChange={handleSearch}
                     />
                         <CloseButton 
-                            onClick={() => setTyping(false)}
-                            
+                            onClick={() => setTyping(false)}    
                         >
                             <i 
                                 className="fas fa-times-circle" 
