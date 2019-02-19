@@ -11,7 +11,7 @@ import {
 } from './searchBarStyles';
 
 const scrollHandler = (scrollHeight) => {
-    if (scrollHeight> 100) {
+    if (scrollHeight > 100) {
         return true
     }
 
@@ -24,7 +24,6 @@ const scrollHandler = (scrollHeight) => {
 function SearchBar() {
   const [isScrolled, setIsScrolled ] = useState(false);
 
-  // this will probably change for styled components
   useEffect(() => {
       window.addEventListener('scroll', () => {
           const scrolled = scrollHandler(window.scrollY);
@@ -50,12 +49,13 @@ function SearchBar() {
         <SearchInput />
 
         <RightHandIcons>
-            { ['compass', 'heart', 'user'].map(name => <div key={name}>
-                <i 
-                    className={`far fa-${name}`}
-                    style={{ fontSize: 20, color: '#484848' }}>
-                </i>
-            </div>) }   
+            { ['compass', 'heart', 'user'].map(name => 
+                <div key={name}>
+                    <i 
+                        className={`far fa-${name}`}
+                        style={{ fontSize: 20, color: '#484848' }}>
+                    </i>
+                </div>) }   
         </RightHandIcons>
     </Header>
   );
