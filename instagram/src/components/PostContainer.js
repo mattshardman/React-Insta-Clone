@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import PT from 'prop-types';
 import CommentSection from './CommentSection';
 
@@ -44,7 +45,7 @@ const styleMaker = (thumbnailUrl, imageUrl) => ({
     },
     likesSection: {
         width: '100%',
-        height: 50,
+        height: 55,
         boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'column',
@@ -52,6 +53,12 @@ const styleMaker = (thumbnailUrl, imageUrl) => ({
         alignItems: 'flex-start',
         paddingLeft: 20, 
         paddingTop: 10
+    },
+    commentSection: { 
+        width: '100%', 
+        padding: '5px 20px', 
+        boxSizing: 'border-box', 
+        textAlign: 'left'  
     },
     addCommentSection: { 
         width: 'calc(100% - 40px)',
@@ -64,7 +71,7 @@ const styleMaker = (thumbnailUrl, imageUrl) => ({
     }
 });
 
-function PostContainer({ username, thumbnailUrl, imageUrl, likes, comments }) {
+function PostContainer({ username, thumbnailUrl, imageUrl, likes, timestamp, comments }) {
     const styles = styleMaker(thumbnailUrl, imageUrl);
     const { 
         wrapper, 
@@ -72,7 +79,8 @@ function PostContainer({ username, thumbnailUrl, imageUrl, likes, comments }) {
         avatar, 
         imageSection, 
         textSection, 
-        likesSection, 
+        likesSection,
+        commentSection, 
         addCommentSection 
     } = styles;
 
@@ -104,8 +112,9 @@ function PostContainer({ username, thumbnailUrl, imageUrl, likes, comments }) {
                     <div style={{ fontSize: 14, fontWeight: 700 }}>{likes} likes</div>
                     
                 </div>
-                <div style={{ width: '100%', padding: '5px 20px', boxSizing: 'border-box'  }}>
+                <div style={commentSection}>
                     { comments.map(comment => <CommentSection key={comment.text} {...comment} />) }
+                    <small>{moment(timestamp).startOf('hour').fromNow()}</small>
                 </div>
                 <div style={addCommentSection}>
                     <input 
@@ -113,6 +122,7 @@ function PostContainer({ username, thumbnailUrl, imageUrl, likes, comments }) {
                         placeholder="Add a comment..." 
                         style={{ 
                             height: 30,
+                            width: '75%',
                             border: 'none',
                             fontSize: 14,
                             outline: 'none'
@@ -130,6 +140,7 @@ PostContainer.propTypes = {
     thumbnailUrl: PT.string.isRequired, 
     imageUrl: PT.string.isRequired,
     likes: PT.number.isRequired,
+    timestamp: PT.string.isRequired, 
     comments: PT.arrayOf(PT.object).isRequired,
 }
 
