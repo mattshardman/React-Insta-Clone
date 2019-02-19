@@ -12,6 +12,9 @@ export const SearchBox = styled.div`
     color: #999;
     padding: 0 10px;
     cursor: text;
+    @media (max-width: 900px) {
+        display: none;
+    }
 `;
 
 export const SearchIcon = styled.div`

@@ -5,46 +5,50 @@ import {
     Header, 
     LogoSection, 
     LogoImg, 
+    SeparatingLine,
     LogoText, 
     RightHandIcons 
 } from './searchBarStyles';
 
+const scrollHandler = (scrollHeight) => {
+    if (scrollHeight> 100) {
+        return true
+    }
+
+    if (!scrollHeight) {
+        return false
+    }
+    return false;
+}
+
 function SearchBar() {
   const [isScrolled, setIsScrolled ] = useState(false);
-  const [isMobile, setIsMobile] = useState(true);
 
   // this will probably change for styled components
   useEffect(() => {
-    const isMobile = window.innerWidth < 900;
-    setIsMobile(isMobile);
-      window.addEventListener('resize', () => {
-        const isMobile = window.innerWidth < 900;
-        setIsMobile(isMobile);
-      });
-
       window.addEventListener('scroll', () => {
-          if (window.scrollY > 100) {
-            return setIsScrolled(true);
-          }
-
-          if (!window.scrollY) {
-            return setIsScrolled(false);
-          }
+          const scrolled = scrollHandler(window.scrollY);
+          setIsScrolled(scrolled);
       });
-  })
+
+      return () => window.removeEventListener('scroll', () => scrollHandler());
+  });
 
   return (
-    <Header isMobile={isMobile} isScrolled={isScrolled}>
+    <Header isScrolled={isScrolled}>
         <LogoSection>
-            <LogoImg>
+            <LogoImg isScrolled={isScrolled}>
                 <i 
                     className="fab fa-instagram" 
                     style={{ fontSize: 30 }}
                 />
             </LogoImg>
+            <SeparatingLine isScrolled={isScrolled} />
             <LogoText isScrolled={isScrolled}>Instagram</LogoText>
         </LogoSection>
-        { !isMobile && <SearchInput /> }
+
+        <SearchInput />
+
         <RightHandIcons>
             { ['compass', 'heart', 'user'].map(name => <div key={name}>
                 <i 

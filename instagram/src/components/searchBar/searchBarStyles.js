@@ -7,29 +7,41 @@ export const Header = styled.header`
     height: ${props => props.isScrolled ? '52px' : '77px'};
     display: flex;
     align-items: center;
-    justify-content: ${props => props.isMobile ? 'space-between' : 'space-around'};
-    padding: ${props => props.isMobile  ? '0 5%' : '0 10%'};
+    justify-content: space-around;
+    padding: 0 10%;
     border-bottom: #eaeaea 1px solid;
-    transition: height 400ms;
     background: #fff;
+    transition: padding 420ms, height 420ms;
+    @media (max-width: 900px) {
+        padding: 0 5%;
+        justify-content: space-between;
+    }
 `;
 
 export const LogoSection = styled.div`
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    width: 20%; 
+    justify-content: flex-start; 
+    width: 150px;
 `;
 
 export const LogoImg = styled.div`
-    border-right: 1px #262626 solid;
     padding-right: 10px; 
-    margin-right: 10px;
+`;
+
+export const SeparatingLine = styled.div`
+    height: 28px;
+    width: 1px;
+    background: #262626;
+    transform: scaleX(0.5);
+    opacity: ${({isScrolled}) => isScrolled ? 0 : 1};
+    transition: opacity 420ms;
 `;
 
 export const LogoText = styled.div`
     opacity: ${props => props.isScrolled ? 0 : 1};
     font-family: Lobster Two, cursive;
+    margin-left: 10px;
     font-size: 25px;
     transition: opacity 420ms;
 `;
@@ -38,6 +50,9 @@ export const RightHandIcons = styled.div`
     display: flex; 
     align-items: center;
     justify-content: space-between;
-    width: 15%;
-    min-width: 100px; 
+    width: 150px;
+    transition: width 420ms;
+    @media (max-width: 900px) {
+        width: 100px;
+    } 
 `;
