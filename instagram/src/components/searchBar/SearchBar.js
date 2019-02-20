@@ -21,7 +21,7 @@ const scrollHandler = (scrollHeight) => {
     return false;
 }
 
-function SearchBar({ handleSearch, searchTerm }) {
+function SearchBar({ handleSearch, searchTerm, logout }) {
   const [isScrolled, setIsScrolled ] = useState(false);
 
   useEffect(() => {
@@ -52,13 +52,25 @@ function SearchBar({ handleSearch, searchTerm }) {
         />
 
         <RightHandIcons>
-            { ['compass', 'heart', 'user'].map(name => 
+            { ['compass', 'heart'].map(name => 
                 <div key={name}>
                     <i 
                         className={`far fa-${name}`}
                         style={{ fontSize: 20, color: '#484848' }}>
                     </i>
-                </div>) }   
+                </div>) }  
+             <button 
+                onClick={logout} 
+                style={{ 
+                    background: 'none', 
+                    border: 'none', 
+                    outline: 'none' 
+                }}>
+                <i 
+                    className={`far fa-user`}
+                    style={{ fontSize: 20, color: '#484848' }}>
+                </i>
+            </button> 
         </RightHandIcons>
     </Header>
   );

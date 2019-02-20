@@ -21,6 +21,7 @@ class PostsPage extends Component {
     this.state = {
         searchTerm: '',
         posts: props.posts,
+        user: props.user,
     }
   }
   
@@ -82,7 +83,7 @@ class PostsPage extends Component {
           return {
             ...post,
             comments: [...post.comments, {
-              username: 'matt',
+              username: this.state.user,
               text: commentText
             }]
           }
@@ -99,12 +100,14 @@ class PostsPage extends Component {
   }
 
   render() {
+    console.log(this.props)
     const { posts, searchTerm } = this.state;
     return (
       <>
        <SearchBar 
         searchTerm={searchTerm}
         handleSearch={this.handleSearch}
+        logout={this.props.logout}
        />
        { posts &&
         <PostsWrapper>

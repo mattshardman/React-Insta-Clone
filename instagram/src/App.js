@@ -39,7 +39,10 @@ class App extends Component {
           ?
           <Login {...this.props} />
           :
-          <PostsPage {...this.state} />
+          <PostsPage 
+            {...this.state} 
+            {...this.props} 
+          />
         }
         </div>
       );
