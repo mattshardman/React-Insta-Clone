@@ -4,6 +4,7 @@ import uuid from 'uuid';
 
 import data from './dummy-data';
 import PostsPage from './components/PostsPage';
+import withAuth from './auth/authenticate';
 
 const persistedData = localStorage.getItem('posts');
 
@@ -42,4 +43,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withAuth(App);

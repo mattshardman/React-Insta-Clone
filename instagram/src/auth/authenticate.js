@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 function withAuth(Component) {
-    return class WithAuth extends Component {
+    return class WithAuth extends React.Component {
+        state = {
+            loggedIn: false,
+        }
+
         render() {
             return (
                 <Component {...this.props} />
