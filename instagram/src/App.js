@@ -5,6 +5,7 @@ import uuid from 'uuid';
 import data from './dummy-data';
 import PostsPage from './components/PostsPage';
 import withAuth from './auth/authenticate';
+import Login from './components/Login';
 
 const persistedData = localStorage.getItem('posts');
 
@@ -29,16 +30,21 @@ class App extends Component {
     return this.setState({ posts: dataWithIds });
   }
 
- 
-
   render() {
     if (this.state.posts) {
       return (
         <div className="App">
-         <PostsPage {...this.state} />
+        { 
+          !this.props.isLoggedIn 
+          ?
+          <Login {...this.props} />
+          :
+          <PostsPage {...this.state} />
+        }
         </div>
       );
     }
+
     return null;
   }
 }
