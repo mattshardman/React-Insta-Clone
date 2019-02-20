@@ -73,3 +73,11 @@ export const AddComments = styled.div`
     align-items: center;
     margin: 10px 20px;
 `;
+
+export const CommentInput = styled.input`
+    height: 30px;
+    width: 100%;
+    border: none;
+    font-size: 14px;
+    outline: none;
+`;

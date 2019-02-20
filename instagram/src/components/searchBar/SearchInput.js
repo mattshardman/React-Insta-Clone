@@ -6,7 +6,8 @@ function SearchInput({ handleSearch, searchTerm }) {
     return (
         <SearchBox 
             onClick={() => setTyping(true)}
-            onBlur={() => setTyping(false)}
+            onBlur={() => { setTyping(false);
+            handleSearch(); }}
             typing={typing}
         >
             <SearchIcon>
@@ -27,11 +28,14 @@ function SearchInput({ handleSearch, searchTerm }) {
                         autoFocus
                         type="text" 
                         placeholder=""
-                        // value={searchTerm}
+                        value={searchTerm}
                         onChange={handleSearch}
                     />
                         <CloseButton 
-                            onClick={() => setTyping(false)}    
+                            onClick={(e) => {
+                                setTyping(false);
+                                handleSearch(e);
+                            }}    
                         >
                             <i 
                                 className="fas fa-times-circle" 

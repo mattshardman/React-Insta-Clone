@@ -11,7 +11,7 @@ const Comments = styled.div`
     box-sizing: border-box;
 `;
 
-function CommentSection({username, text}) {
+function CommentSection({ username, text }) {
     return (
         <Comments>
             <p style={{ margin: 0, textAlign: 'left' }}>

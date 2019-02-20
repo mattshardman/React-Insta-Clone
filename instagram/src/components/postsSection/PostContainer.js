@@ -11,10 +11,11 @@ import {
     TextSection, 
     Likes, 
     Comments, 
-    AddComments 
 } from './postsStyles';
 
-function PostContainer({ id, username, thumbnailUrl, imageUrl, likes, timestamp, comments, handleLike, handleChangeCommentText, commentValue, handleAddComments }) {
+import AddCommentsSection from './AddCommentsSection';
+
+function PostContainer({ id, username, thumbnailUrl, imageUrl, likes, timestamp, comments, handleLike, handleAddComments }) {
     const [thisUserLiked, setThisUserLiked ] = useState(false);
 
     return (
@@ -57,28 +58,11 @@ function PostContainer({ id, username, thumbnailUrl, imageUrl, likes, timestamp,
                     <small>{moment(timestamp).startOf('hour').fromNow()}</small>
                 </Comments>
 
-                <AddComments>
-                    <form 
-                        action="" 
-                        style={{ padding: 0, margin: 0, width: '100%' }}
-                        onSubmit={(e) => handleAddComments(e, id)}
-                    >
-                        <input 
-                            type="text" 
-                            placeholder="Add a comment..." 
-                            value={commentValue}
-                            onChange={(e) => handleChangeCommentText(e, id)}
-                            style={{ 
-                                height: 30,
-                                width: '100%',
-                                border: 'none',
-                                fontSize: 14,
-                                outline: 'none'
-                            }} 
-                        />
-                    </form>
-                    <i/>
-                </AddComments>
+                <AddCommentsSection
+                    id={id}
+                    handleAddComments={handleAddComments}
+                />
+
             </TextSection>
         </Wrapper>
     )
@@ -93,8 +77,6 @@ PostContainer.propTypes = {
     timestamp: PT.string.isRequired, 
     comments: PT.arrayOf(PT.object).isRequired,
     handleLike: PT.func.isRequired,
-    handleChangeCommentText: PT.func.isRequired,
-    commentValue: PT.string.isRequired,
     handleAddComments: PT.func.isRequired,
 }
 
