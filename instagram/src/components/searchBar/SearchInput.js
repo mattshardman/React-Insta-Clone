@@ -6,8 +6,10 @@ function SearchInput({ handleSearch, searchTerm }) {
     return (
         <SearchBox 
             onClick={() => setTyping(true)}
-            onBlur={() => { setTyping(false);
-            handleSearch(); }}
+            onBlur={() => { 
+                setTyping(false);
+                // handleSearch(); 
+            }}
             typing={typing}
         >
             <SearchIcon>

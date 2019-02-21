@@ -5,7 +5,7 @@ import App from './App';
 import SinglePost from './components/SinglePost';
 import * as serviceWorker from './serviceWorker';
 
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom';
 
 ReactDOM.render( 
     <BrowserRouter>
