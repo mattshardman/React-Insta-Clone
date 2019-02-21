@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const SearchBox = styled.div`
+    box-sizing: border-box;
     width: 215px;
     font-size: 14px;
+    font-weight: 500;
     height: 28px; 
     background: ${props => props.typing ? '#fff' : 'rgb(250,250,250)'};
     border-radius: 2px;

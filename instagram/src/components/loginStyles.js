@@ -23,7 +23,6 @@ export const LoginForm = styled.form`
     align-items: center;
     justify-content: space-around;
     border: 1px solid #e6e6e6; 
-    border-radius: 3px;
 `;
 
 export const FormInput = styled.input`
@@ -38,7 +37,7 @@ export const FormInput = styled.input`
     transition: border 400ms;
 
     :focus {
-        border: 1px #262626 solid;
+        border: 1px #bfbfbf solid;
     }
 `;
 
@@ -55,11 +54,9 @@ export const FormButton = styled.button`
     transition: opacity 400ms;
 `;
 
-export const Header = styled.h1`
-    font-family: Lobster Two, cursive;
-    font-weight: 500;
-    font-size: 45px;
-    margin: 0px 0;
+export const Header = styled.div`
+    display: flex;
+    align-items: flex-end;
 `;
 
 export const Or = styled.div`

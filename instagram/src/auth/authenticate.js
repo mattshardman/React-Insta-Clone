@@ -9,7 +9,7 @@ function withAuth(Component) {
 
         componentDidMount() {
             const isLoggedIn = JSON.parse(localStorage.getItem('username'));
-            if (isLoggedIn.username) {
+            if (isLoggedIn) {
                 this.setState({ isLoggedIn: true, user: isLoggedIn.username })
             }
         }
@@ -21,7 +21,7 @@ function withAuth(Component) {
         }
 
         logout = () => {
-            localStorage.setItem('username', JSON.stringify({ username: null }));
+            localStorage.setItem('username', JSON.stringify(null));
             this.setState({ isLoggedIn: false, user: null });
         }
 

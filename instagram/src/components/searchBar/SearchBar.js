@@ -39,11 +39,17 @@ function SearchBar({ handleSearch, searchTerm, logout }) {
             <LogoImg isScrolled={isScrolled}>
                 <i 
                     className="fab fa-instagram" 
-                    style={{ fontSize: 25 }}
+                    style={{ fontSize: 26 }}
                 />
             </LogoImg>
             <SeparatingLine isScrolled={isScrolled} />
-            <LogoText isScrolled={isScrolled}>Instagram</LogoText>
+            <LogoText isScrolled={isScrolled}>
+                <img 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png" 
+                    alt="logo"
+                    width={110} 
+                />
+            </LogoText>
         </LogoSection>
 
         <SearchInput 

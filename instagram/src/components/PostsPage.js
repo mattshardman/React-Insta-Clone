@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import FuzzySearch from 'fuzzy-search';
 import SearchBar from './searchBar/SearchBar';
 import PostContainer from './postsSection/PostContainer';
-import uuid from 'uuid';
+
+import { Link } from "react-router-dom";
 
 const PostsWrapper = styled.div`
   width: 100%;
@@ -112,12 +113,14 @@ class PostsPage extends Component {
         <PostsWrapper>
           { posts.map(post => 
           !!post.display &&
-            <PostContainer 
-              key={post.timestamp} 
-              handleLike={this.handleLike}
-              handleAddComments={this.handleAddComments}
-              {...post}
-            />
+            <Link to={`post/${post.id}`} style={{ textDecoration: 'none', color: '#000' }}>
+              <PostContainer 
+                key={post.id} 
+                handleLike={this.handleLike}
+                handleAddComments={this.handleAddComments}
+                {...post}
+              />
+            </Link>
             ) 
           }
         </PostsWrapper>

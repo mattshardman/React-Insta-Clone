@@ -8,7 +8,7 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 0 10%;
+    padding: 0 9%;
     border-bottom: #eaeaea 1px solid;
     background: #fff;
     transition: padding 420ms, height 420ms;
@@ -22,7 +22,7 @@ export const LogoSection = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start; 
-    width: 160px;
+    width: 175px;
 `;
 
 export const LogoImg = styled.div`
@@ -42,15 +42,19 @@ export const LogoText = styled.div`
     opacity: ${props => props.isScrolled ? 0 : 1};
     font-family: Lobster Two, cursive;
     margin-left: 15px;
+    margin-top: 5px;
     font-size: 25px;
     transition: opacity 420ms;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
 `;
 
 export const RightHandIcons = styled.div`
     display: flex; 
     align-items: center;
     justify-content: space-between;
-    width: 150px;
+    width: 175px;
     transition: width 420ms;
     @media (max-width: 900px) {
         width: 100px;

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 
 import { 
     LoginWrapper, 
@@ -21,7 +20,13 @@ function Login({ login }) {
             <LoginForm 
                 onSubmit={(e) => login(e, username, password)}
             >
-                <Header>Instagram</Header>
+                <Header>
+                    <img 
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png" 
+                        alt="logo"
+                        width={190} 
+                    />
+                </Header>
                 <FormInput 
                     type="text"
                     value={username}

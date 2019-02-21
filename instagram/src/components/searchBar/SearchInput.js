@@ -40,8 +40,8 @@ function SearchInput({ handleSearch, searchTerm }) {
                             <i 
                                 className="fas fa-times-circle" 
                                 style={{ 
-                                    color: '#484848', 
-                                    marginTop: 3, 
+                                    color: '#bfbfbf', 
+                                    marginTop: 2, 
                                     fontSize: 14 
                                 }}
                             >

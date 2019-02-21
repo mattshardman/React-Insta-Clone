@@ -65,7 +65,7 @@ function PostContainer({ id, username, thumbnailUrl, imageUrl, likes, timestamp,
 
             </TextSection>
         </Wrapper>
-    )
+    );
 }
 
 PostContainer.propTypes = {

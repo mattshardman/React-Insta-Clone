@@ -14,10 +14,9 @@ class App extends Component {
     posts: null,
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const dataWithIds = data.map(each => ({
       ...each,
-      id: uuid(),
       display: true,
     }));
 
