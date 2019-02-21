@@ -4,8 +4,6 @@ import FuzzySearch from 'fuzzy-search';
 import SearchBar from './searchBar/SearchBar';
 import PostContainer from './postsSection/PostContainer';
 
-import { Link } from "react-router-dom";
-
 const PostsWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
@@ -50,6 +48,7 @@ class PostsPage extends Component {
       const newPosts = state.posts.map(post => {
         const searcher = new FuzzySearch([post], ['username'], { caseSensitive: false });
         const result = searcher.search(value);
+        console.log(result)
         if(!post.username.includes(value)) {
           return {
             ...post,
@@ -113,14 +112,13 @@ class PostsPage extends Component {
         <PostsWrapper>
           { posts.map(post => 
           !!post.display &&
-            <Link to={`post/${post.id}`} style={{ textDecoration: 'none', color: '#000' }}>
+            
               <PostContainer 
                 key={post.id} 
                 handleLike={this.handleLike}
                 handleAddComments={this.handleAddComments}
                 {...post}
               />
-            </Link>
             ) 
           }
         </PostsWrapper>

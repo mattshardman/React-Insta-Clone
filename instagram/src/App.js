@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import uuid from 'uuid';
 
 import data from './dummy-data';
 import PostsPage from './components/PostsPage';
@@ -30,11 +29,13 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.posts) {
+    const { posts } = this.state;
+    const { isLoggedIn } = this.props;
+    if (posts) {
       return (
         <div className="App">
         { 
-          !this.props.isLoggedIn 
+          !isLoggedIn 
           ?
           <Login {...this.props} />
           :
@@ -47,7 +48,7 @@ class App extends Component {
       );
     }
 
-    return null;
+    return <div className="App">loading</div>;
   }
 }
 

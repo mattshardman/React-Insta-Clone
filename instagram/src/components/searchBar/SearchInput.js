@@ -6,9 +6,9 @@ function SearchInput({ handleSearch, searchTerm }) {
     return (
         <SearchBox 
             onClick={() => setTyping(true)}
-            onBlur={() => { 
+            onBlur={(e) => { 
                 setTyping(false);
-                // handleSearch(); 
+                handleSearch(e); 
             }}
             typing={typing}
         >
