@@ -27,7 +27,7 @@ function withAuth(Component) {
 
         render() {
             return (
-                <Component 
+                <Component
                     login={this.login}
                     logout={this.logout}
                     {...this.state} 

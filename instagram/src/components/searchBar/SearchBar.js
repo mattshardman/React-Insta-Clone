@@ -39,7 +39,7 @@ function SearchBar({ handleSearch, searchTerm, logout }) {
             <LogoImg isScrolled={isScrolled}>
                 <i 
                     className="fab fa-instagram" 
-                    style={{ fontSize: 30 }}
+                    style={{ fontSize: 25 }}
                 />
             </LogoImg>
             <SeparatingLine isScrolled={isScrolled} />
@@ -64,7 +64,8 @@ function SearchBar({ handleSearch, searchTerm, logout }) {
                 style={{ 
                     background: 'none', 
                     border: 'none', 
-                    outline: 'none' 
+                    outline: 'none',
+                    cursor: 'pointer'
                 }}>
                 <i 
                     className={`far fa-user`}

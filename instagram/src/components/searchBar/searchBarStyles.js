@@ -22,11 +22,11 @@ export const LogoSection = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start; 
-    width: 150px;
+    width: 160px;
 `;
 
 export const LogoImg = styled.div`
-    padding-right: 10px; 
+    margin-right: 15px; 
 `;
 
 export const SeparatingLine = styled.div`
@@ -41,7 +41,7 @@ export const SeparatingLine = styled.div`
 export const LogoText = styled.div`
     opacity: ${props => props.isScrolled ? 0 : 1};
     font-family: Lobster Two, cursive;
-    margin-left: 10px;
+    margin-left: 15px;
     font-size: 25px;
     transition: opacity 420ms;
 `;

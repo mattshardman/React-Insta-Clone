@@ -100,7 +100,6 @@ class PostsPage extends Component {
   }
 
   render() {
-    console.log(this.props)
     const { posts, searchTerm } = this.state;
     return (
       <>
